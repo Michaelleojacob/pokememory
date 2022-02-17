@@ -12,6 +12,12 @@ const App = () => {
   const increaseScore = () => setScore(score + 1);
   const resetScore = () => setScore(0);
 
+  const newBestScore = () => {
+    if (score > bestScore) {
+      setBestScore(score);
+    }
+  };
+
   return (
     <div>
       <Header />
@@ -20,7 +26,7 @@ const App = () => {
       <GameArea
         increaseScore={increaseScore}
         resetScore={resetScore}
-        setBestScore={setBestScore}
+        newBestScore={newBestScore}
       />
       <Footer />
     </div>
