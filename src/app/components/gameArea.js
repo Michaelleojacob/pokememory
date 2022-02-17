@@ -5,7 +5,7 @@ const GameArea = (props) => {
   // const [isGameOver, setIsGameOver] = useState(false);
   const [cards, setCards] = useState([]);
 
-  const cardObjects = () => {
+  const makeCardsAtGameStart = () => {
     const arr = [];
     for (let i = 0; i < 12; i++) {
       const obj = {
@@ -14,19 +14,31 @@ const GameArea = (props) => {
         hasBeenClicked: false,
         image: '',
         name: '',
+        cardID: uniqid(),
       };
       arr.push(obj);
     }
     setCards(arr);
   };
 
-  useEffect(() => {
-    cardObjects();
-  }, []);
+  const shuffleCards = () => {
+    const newArr = cards.map((obj) => ({ ...obj }));
+    let currentIndex = newArr.length;
+    let randomIndex;
+    while (currentIndex !== 0) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+      [newArr[currentIndex], newArr[randomIndex]] = [
+        newArr[randomIndex],
+        newArr[currentIndex],
+      ];
+    }
+    return newArr;
+  };
 
-  const handleHasBeenClicked = (obj) => {
+  const changeHasBeenClicked = (obj) => {
     const index = obj.index;
-    const newArr = [...cards];
+    const newArr = cards.map((obj) => ({ ...obj }));
     const item = { ...newArr[index] };
     item.hasBeenClicked = true;
     newArr[index] = item;
@@ -34,29 +46,36 @@ const GameArea = (props) => {
   };
 
   const handleClick = (e, item) => {
-    console.log(item.hasBeenClicked);
-    handleHasBeenClicked(item);
+    changeHasBeenClicked(item);
   };
 
-  const makeCards = (item) => {
-    return (
-      <div
-        key={uniqid()}
-        onClick={(e) => handleClick(e, item)}
-        className="card"
-      >
-        <div>{item.number}</div>
-        <div>{item.hasBeenClicked ? 'true' : 'false'}</div>
-      </div>
-    );
+  const makeCardsInTheDOM = () => {
+    const newArr = shuffleCards();
+    return newArr.map((item) => {
+      return (
+        <div
+          key={item.cardID}
+          onClick={(e) => handleClick(e, item)}
+          className="card"
+        >
+          <div>{item.number}</div>
+          <div>{item.hasBeenClicked ? 'true' : 'false'}</div>
+        </div>
+      );
+    });
   };
+
+  useEffect(() => {
+    makeCardsAtGameStart();
+  }, []);
 
   return (
     <div>
+      <button onClick={shuffleCards}>shuffle</button>
       <button onClick={props.increaseScore}>increase score</button>
       <button onClick={props.resetScore}>reset score</button>
       <div>game area</div>
-      <div className="card-area">{cards.map((item) => makeCards(item))}</div>
+      <div className="card-area">{makeCardsInTheDOM()}</div>
     </div>
   );
 };
