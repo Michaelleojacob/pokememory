@@ -7,9 +7,10 @@ const GameArea = (props) => {
 
   const cardObjects = () => {
     const arr = [];
-    for (let i = 1; i < 13; i++) {
+    for (let i = 0; i < 12; i++) {
       const obj = {
-        number: i,
+        index: i,
+        number: i + 1,
         hasBeenClicked: false,
         image: '',
         name: '',
@@ -23,16 +24,29 @@ const GameArea = (props) => {
     cardObjects();
   }, []);
 
-  const handleClick = (e) => {
-    console.log(e);
+  const handleHasBeenClicked = (obj) => {
+    const index = obj.index;
+    const newArr = [...cards];
+    const item = { ...newArr[index] };
+    item.hasBeenClicked = true;
+    newArr[index] = item;
+    setCards(newArr);
+  };
+
+  const handleClick = (e, item) => {
+    console.log(item.hasBeenClicked);
+    handleHasBeenClicked(item);
   };
 
   const makeCards = (item) => {
-    console.log(item);
     return (
-      <div key={uniqid()} onClick={handleClick}>
+      <div
+        key={uniqid()}
+        onClick={(e) => handleClick(e, item)}
+        className="card"
+      >
         <div>{item.number}</div>
-        <div>{item.hasBeenClicked}</div>
+        <div>{item.hasBeenClicked ? 'true' : 'false'}</div>
       </div>
     );
   };
@@ -42,7 +56,7 @@ const GameArea = (props) => {
       <button onClick={props.increaseScore}>increase score</button>
       <button onClick={props.resetScore}>reset score</button>
       <div>game area</div>
-      <div>{cards.map((item) => makeCards(item))}</div>
+      <div className="card-area">{cards.map((item) => makeCards(item))}</div>
     </div>
   );
 };

@@ -1,0 +1,11 @@
+.card-area {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  gap: 0.5rem;
+  padding: 1rem;
+}
+
+.card {
+  border: 1px solid purple;
+}
