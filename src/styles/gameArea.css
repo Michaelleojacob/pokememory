@@ -9,3 +9,8 @@
 .card {
   border: 1px solid purple;
 }
+
+.pokemon-icon {
+  max-height: 72px;
+  max-width: 72px;
+}
