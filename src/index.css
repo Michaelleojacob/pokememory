@@ -1,1 +1,7 @@
 @import url('./styles/gameArea.css');
+@import url('./styles/header.css');
+
+@font-face {
+  font-family: 'solid';
+  src: url(/public/fonts/Pokemon\ Solid.woff) format('woff');
+}
