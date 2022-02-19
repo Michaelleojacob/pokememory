@@ -61,7 +61,11 @@ const GameArea = (props) => {
         >
           {/* <div>{item.number}</div> */}
           {/* <div>{item.hasBeenClicked ? 'true' : 'false'}</div> */}
-          <img className="pokemon-icon" src={item.image} alt={item.alt}></img>
+          <img
+            className="pokemon-icon"
+            src={process.env.PUBLIC_URL + item.image}
+            alt={item.alt}
+          ></img>
           <div>{item.name}</div>
         </div>
       );
