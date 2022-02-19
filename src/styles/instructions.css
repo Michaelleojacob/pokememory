@@ -1,0 +1,17 @@
+#instructions {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.instruct-btn {
+  font-size: 1.25rem;
+}
+
+#close-instructions {
+  margin-top: 0.5rem;
+}
+
+#instructions-title {
+  font-weight: 600;
+}

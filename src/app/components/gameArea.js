@@ -46,7 +46,7 @@ const GameArea = (props) => {
     resetGame();
   };
 
-  const handleClick = (e, item) => {
+  const handleClick = (item) => {
     item.hasBeenClicked ? endGame() : changeHasBeenClicked(item);
   };
 
@@ -56,13 +56,13 @@ const GameArea = (props) => {
       return (
         <div
           key={item.cardID}
-          onClick={(e) => handleClick(e, item)}
+          onClick={() => handleClick(item)}
           className="card"
         >
-          <div>{item.number}</div>
-          <div>{item.name}</div>
+          {/* <div>{item.number}</div> */}
+          {/* <div>{item.hasBeenClicked ? 'true' : 'false'}</div> */}
           <img className="pokemon-icon" src={item.image} alt={item.alt}></img>
-          <div>{item.hasBeenClicked ? 'true' : 'false'}</div>
+          <div>{item.name}</div>
         </div>
       );
     });
@@ -73,8 +73,7 @@ const GameArea = (props) => {
   }, []);
 
   return (
-    <div>
-      <div>game area</div>
+    <div id="game-area">
       <div className="card-area">{makeCardsInTheDOM()}</div>
     </div>
   );

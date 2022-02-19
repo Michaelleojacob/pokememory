@@ -1,15 +1,23 @@
 #header-container {
   position: relative;
   text-align: center;
+  background-image: url('../../public/images/pokeball.jpeg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 13rem;
+  margin: auto;
+  border: 5px solid black;
 }
 
 #header-img {
-  width: clamp(99%, 100%, 100%);
+  position: relative;
+  width: 90%;
 }
 
 #header-title {
   position: absolute;
-  top: 30%;
+  top: 20%;
   left: 50%;
   transform: translate(-70%, -50%);
   font-family: solid;

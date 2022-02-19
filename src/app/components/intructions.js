@@ -9,14 +9,20 @@ const Instructions = () => {
 
   const renderIsOpen = () => {
     return (
-      <div id="instructions-title">
-        how to play:
+      <div>
+        <div id="instructions-title">how to play:</div>
         <div id="instructions-text">
           Begin the game by clicking on a pokemon.
           <br /> Click on different pokemon to win.
           <br /> There are 12 unique pokemon, try to click each one once.
         </div>
-        <button onClick={handleClick}>hide instructions</button>
+        <button
+          className="instruct-btn"
+          id="close-instructions"
+          onClick={handleClick}
+        >
+          hide instructions
+        </button>
       </div>
     );
   };
@@ -24,7 +30,9 @@ const Instructions = () => {
   const renderIsClosed = () => {
     return (
       <div>
-        <button onClick={handleClick}>show instructions</button>
+        <button className="instruct-btn" onClick={handleClick}>
+          show instructions
+        </button>
       </div>
     );
   };

@@ -10,7 +10,6 @@ const Header = () => {
 
   return (
     <div id="header-container">
-      <img id="header-img" src={'/images/pokeball.jpeg'} alt="pokeball"></img>
       <div id="header-title">
         <div ref={circleInstance} id="header-txt">
           pokememory

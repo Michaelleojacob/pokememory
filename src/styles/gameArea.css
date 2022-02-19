@@ -1,16 +1,33 @@
-.card-area {
+#game-area {
   display: flex;
-  flex-direction: column;
-  border: 1px solid black;
-  gap: 0.5rem;
+  width: calc(100% - 2rem);
   padding: 1rem;
+  justify-content: center;
 }
 
-.card {
-  border: 1px solid purple;
+.card-area {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  text-align: center;
+  gap: 1rem;
+  align-items: flex-end;
+  justify-content: space-between;
+  max-width: 400px;
 }
 
 .pokemon-icon {
   max-height: 72px;
   max-width: 72px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  min-width: 120px;
+  min-height: 120px;
+  max-height: 120px;
+  max-width: 120px;
+  align-items: center;
+  justify-content: flex-end;
 }

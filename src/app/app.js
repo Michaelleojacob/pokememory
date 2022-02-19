@@ -3,7 +3,7 @@ import Header from './components/header';
 import Score from './components/score';
 import Instructions from './components/intructions';
 import GameArea from './components/gameArea';
-import Footer from './components/footer';
+import Flair from './components/flair';
 
 const App = () => {
   const [score, setScore] = useState(0);
@@ -19,16 +19,18 @@ const App = () => {
   };
 
   return (
-    <div>
+    <div id="app">
       <Header />
-      <Score score={score} bestScore={bestScore} />
-      <Instructions />
-      <GameArea
-        increaseScore={increaseScore}
-        resetScore={resetScore}
-        newBestScore={newBestScore}
-      />
-      <Footer />
+      <Flair />
+      <div id="main-content">
+        <Instructions />
+        <Score score={score} bestScore={bestScore} />
+        <GameArea
+          increaseScore={increaseScore}
+          resetScore={resetScore}
+          newBestScore={newBestScore}
+        />
+      </div>
     </div>
   );
 };

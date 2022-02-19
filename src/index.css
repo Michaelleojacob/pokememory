@@ -1,7 +1,21 @@
-@import url('./styles/gameArea.css');
+@import url('./styles/app.css');
 @import url('./styles/header.css');
+@import url('./styles/flair.css');
+@import url('./styles/instructions.css');
+@import url('./styles/score.css');
+@import url('./styles/gameArea.css');
 
 @font-face {
   font-family: 'solid';
   src: url(/public/fonts/Pokemon\ Solid.woff) format('woff');
+}
+
+body,
+html {
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --gap: 1rem;
 }

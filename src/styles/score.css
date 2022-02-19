@@ -1,0 +1,25 @@
+:root {
+  --currScoreColor: #f9c74f;
+  --bestScoreColor: #168aad;
+}
+
+#score-container {
+  display: flex;
+  gap: 1rem;
+}
+
+#currentScore,
+#bestScore {
+  padding: 0.25rem;
+  border-radius: 8px;
+}
+
+#currentScore {
+  border: 1px solid var(--currScoreColor);
+  background-color: var(--currScoreColor);
+}
+
+#bestScore {
+  border: 1px solid var(--bestScoreColor);
+  background-color: var(--bestScoreColor);
+}
